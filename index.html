@@ -176,7 +176,7 @@
 
         vec4 texel = texture2D(texture, uv);
 
-        float noise = noise(vec3(uv * noiseRes, time * noiseRes));
+        float noise = noise(vec3(uv * noiseRes, mod(time, 1000.0) * noiseRes));
         texel += noise * noiseMult;
         gl_FragColor = texel;
       }
